@@ -463,5 +463,5 @@ class Palette {
   static var backgroundColor;
 
   static var activeColor;
-  
+
 }
