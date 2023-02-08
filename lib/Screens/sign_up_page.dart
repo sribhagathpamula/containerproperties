@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
 
 class Signuppage extends StatefulWidget {
   @override
@@ -23,19 +24,23 @@ class _LoginSignupScreenState extends State<Signuppage> {
             left: 0,
             child: Container(
               height: 300,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("images/background.jpg"),
+                      image: NetworkImage(
+                          "https://static.vecteezy.com/system/resources/thumbnails/002/638/193/small/s-alphabet-letter-logo-for-business-with-star-and-circle-simple-elegant-lettering-for-company-corporate-identity-branding-icon-design-in-white-and-black-vector.jpg"),
+
+                      // image: const AssetImage(
+                      //     "assets/P4-JAN-iStock-1432854572.jpg"),
                       fit: BoxFit.fill)),
               child: Container(
-                padding: EdgeInsets.only(top: 90, left: 20),
-                color: Color(0xFF3b5999).withOpacity(.85),
+                padding: const EdgeInsets.only(top: 90, left: 20),
+                color: const Color(0xFF3b5999).withOpacity(.85),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     RichText(
                       text: TextSpan(
-                          text: "Welcome to",
+                          text: "say cheers to",
                           style: TextStyle(
                             fontSize: 25,
                             letterSpacing: 2,
@@ -43,7 +48,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
                           ),
                           children: [
                             TextSpan(
-                              text: isSignupScreen ? " Bhavs," : " Back,",
+                              text: isSignupScreen ? " s*," : " s*,",
                               style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
@@ -52,7 +57,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
                             )
                           ]),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -165,21 +170,30 @@ class _LoginSignupScreenState extends State<Signuppage> {
           buildBottomHalfContainer(false),
           // Bottom buttons
           Positioned(
-            top: MediaQuery.of(context).size.height - 100,
+            top: MediaQuery.of(context).size.height - 160,
             right: 0,
             left: 0,
             child: Column(
               children: [
                 Text(isSignupScreen ? "Or Signup with" : "Or Signin with"),
                 Container(
-                  margin: EdgeInsets.only(right: 20, left: 20, top: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  margin: EdgeInsets.only(right: 10, left: 0, top: 15),
+                  child: Column(
                     children: [
-                      buildTextButton(MaterialCommunityIcons.facebook,
-                          "Facebook", Palette.activeColor),
-                      buildTextButton(MaterialCommunityIcons.google_plus,
-                          "Google", Palette.activeColor),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          buildTextButton(
+                              Icons.facebook, "Facebook", Palette.activeColor),
+                          buildTextButton(
+                              Icons.email, "Google", Palette.activeColor),
+                        ],
+                      ),
+                      Container(
+                        width: 145,
+                        child: buildTextButton(
+                            Icons.apple, "Apple ID", Palette.activeColor),
+                      ),
                     ],
                   ),
                 )
@@ -196,9 +210,10 @@ class _LoginSignupScreenState extends State<Signuppage> {
       margin: EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          buildTextField(Icons.mail_outline, "info@demouri.com", false, true),
           buildTextField(
-              MaterialCommunityIcons.lock_outline, "****", true, false),
+              Icons.mail_outline, "sitarainfo@gmail.com", false, true),
+          buildTextField(Icons.lock_open, "*********", false, true),
+          //
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -235,12 +250,9 @@ class _LoginSignupScreenState extends State<Signuppage> {
       margin: EdgeInsets.only(top: 20),
       child: Column(
         children: [
-          buildTextField(MaterialCommunityIcons.account_outline, "User Name",
-              false, false),
-          buildTextField(
-              MaterialCommunityIcons.email_outline, "email", false, true),
-          buildTextField(
-              MaterialCommunityIcons.lock_outline, "password", true, false),
+          buildTextField(Icons.people, "User Name", false, false),
+          buildTextField(Icons.email, "email", false, true),
+          buildTextField(Icons.lock_open, "password", true, false),
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 10),
             child: Row(
@@ -268,7 +280,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
                                     : Palette.textColor1),
                             borderRadius: BorderRadius.circular(15)),
                         child: Icon(
-                          MaterialCommunityIcons.account_outline,
+                          Icons.account_circle,
                           color: isMale ? Colors.white : Palette.iconColor,
                         ),
                       ),
@@ -305,7 +317,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
                                     : Colors.transparent),
                             borderRadius: BorderRadius.circular(15)),
                         child: Icon(
-                          MaterialCommunityIcons.account_outline,
+                          Icons.account_circle,
                           color: isMale ? Palette.iconColor : Colors.white,
                         ),
                       ),
@@ -316,21 +328,58 @@ class _LoginSignupScreenState extends State<Signuppage> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  width: 30,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isMale = false;
+                    });
+                  },
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 30,
+                        height: 30,
+                        margin: EdgeInsets.only(right: 8),
+                        decoration: BoxDecoration(
+                            color: isMale
+                                ? Colors.transparent
+                                : Palette.textColor2,
+                            border: Border.all(
+                                width: 1,
+                                color: isMale
+                                    ? Palette.textColor1
+                                    : Colors.transparent),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Icon(
+                          Icons.account_circle,
+                          color: isMale ? Palette.iconColor : Colors.white,
+                        ),
+                      ),
+                      Text(
+                        "others",
+                        style: TextStyle(color: Palette.textColor1),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
           Container(
             width: 200,
-            margin: EdgeInsets.only(top: 20),
+            margin: EdgeInsets.only(top: 15),
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
                   text: "By pressing 'Submit' you agree to our ",
-                  style: TextStyle(color: Palette.textColor2),
+                  style: TextStyle(color: Palette.textColor2 = Colors.black),
                   children: [
                     TextSpan(
-                      //recognizer: ,
-                      text: "term & conditions",
+                      // recognizer: ,
+                      text: "terms & conditions",
                       style: TextStyle(color: Colors.orange),
                     ),
                   ]),
@@ -398,7 +447,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
               ? Container(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Color.orange[200], Color.red[400]],
+                          colors: [Colors.orange, Colors.red],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight),
                       borderRadius: BorderRadius.circular(30),
@@ -450,7 +499,7 @@ class _LoginSignupScreenState extends State<Signuppage> {
 }
 
 class Palette {
-  static var textColor1;
+  static var textColor1 = Colors.black;
 
   static var iconColor;
 
@@ -462,6 +511,5 @@ class Palette {
 
   static var backgroundColor;
 
-  static var activeColor;
-
+  static var activeColor = Colors.black;
 }

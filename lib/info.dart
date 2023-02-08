@@ -1,11 +1,12 @@
 import 'package:containerproperties/widgets.dart/drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'Screens/customer_support_screen.dart';
-import 'Screens/profile_screen.dart';
-import 'Screens/settings_screen.dart';
-import 'Screens/transfer_funds_screen.dart';
+// import 'Screens/customer_support_screen.dart';
+// import 'Screens/profile_screen.dart';
+// import 'Screens/settings_screen.dart';
+// import 'Screens/transfer_funds_screen.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
   String name, image;
   HomeScreen({
