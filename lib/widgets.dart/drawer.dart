@@ -109,12 +109,12 @@ class _CDrawerState extends State<CDrawer> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              TransferFundsScreen()),
-                    );
+                    // Navigator.push<void>(
+                    //   context,
+                    //   MaterialPageRoute<void>(
+                    //       builder: (BuildContext context) =>
+                    //           TransferFundsScreen()),
+                    // );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,11 +141,11 @@ class _CDrawerState extends State<CDrawer> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute<void>(
-                          builder: (BuildContext context) => SettingScreen()),
-                    );
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute<void>(
+                    //       builder: (BuildContext context) => SettingScreen()),
+                    // );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,11 +171,11 @@ class _CDrawerState extends State<CDrawer> {
                 padding: const EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    Navigator.push<void>(
-                      context,
-                      MaterialPageRoute<void>(
-                          builder: (BuildContext context) => const ChatPage()),
-                    );
+                    // Navigator.push<void>(
+                    //   context,
+                    //   MaterialPageRoute<void>(
+                    //       builder: (BuildContext context) => const ChatPage()),
+                    // );
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
